@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo App</h1>
+      <form method="post" action="/">
+        <div style="display: flex">
+          <div class="input-inline description">
+            <label for="description">DESCRIPTION</label>
+            <input
+              type="text"
+              name="description"
+              id="description"
+              placeholder="What do you need to do?"
+              autofocus
+            />
+          </div>
+          <div class="input-inline">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+              <option>Personal</option>
+              <option>Work</option>
+              <option>School</option>
+              <option>Cleaning</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="input-inline">
+            <label for="dueDate">Due Date</label>
+            <input type="date" name="dueDate" id="dueDate" />
+          </div>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+
+   <table>
+    <tr>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Due Date</th>
+      <th>Action</th>
+    </tr>
+      <% for(let todo of todos) { %>
+      <tr>
+        <td><%= todo.description %></td>
+        <td><%= todo.category %></td>
+        <td><%= todo.dueDate %></td>
+
+        <td><a href="/delete?id=<%= todo._id %> ">X</a></td>
+      </tr>
+      <% } %>
+    </table>
+
+  </div>
+  </body>
+</html>
